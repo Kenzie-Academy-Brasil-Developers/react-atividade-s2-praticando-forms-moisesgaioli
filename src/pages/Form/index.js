@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup"
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import "./styles.css"
+import "./styles.css";
 
 function Form () {
 
+    
     const formSchema = yup.object().shape({
 
         username: yup.string().min(3, "Deve conter no mínimo 3 caracteres").max(18, "Deve conter no máximo 18 caracteres").required("Nome de usuário obrigatório"),
@@ -18,12 +19,11 @@ function Form () {
     })
     
     const { register, handleSubmit, formState: { errors } } = useForm({
-    
-    resolver: yupResolver(formSchema),
-
+        resolver: yupResolver(formSchema),
     });
 
     const submitData = data => data;
+
 
     return (
         <> 
